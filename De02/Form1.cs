@@ -73,7 +73,7 @@ namespace De02
             }
             else if (txtmasp.TextLength < 6 || txtmasp.TextLength > 6)
             {
-                MessageBox.Show("Mã số sinh viên chưa nhập đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mã số sản phầm chưa nhập đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -89,7 +89,7 @@ namespace De02
                     newsp.MaSP = txtmasp.Text;
                     newsp.TenSP= txttensp.Text;
                     newsp.Ngaynhap = datatimengaynhap.Value;
-                    newsp.MaLoai = cmbloaisp.SelectedValue.ToString(); 
+                    newsp.MaLoai = cmbloaisp.SelectedValue.ToString();
 
                     mdsanpham.Sanphams.AddOrUpdate(newsp);
                     mdsanpham.SaveChanges();
@@ -198,12 +198,12 @@ namespace De02
 
         private void btntim_Click(object sender, EventArgs e)
         {
-            string hoten = txttk.Text.Trim();
+            string ten = txttk.Text.Trim();
 
             List<Sanpham> listsp = mdsanpham.Sanphams.ToList();
 
 
-            var filteredsp = listsp.Where(s => (string.IsNullOrEmpty(hoten) || s.TenSP.ToString().Contains(hoten)));
+            var filteredsp = listsp.Where(s => (string.IsNullOrEmpty(hoten) || s.TenSP.ToString().Contains(ten)));
             var filteredList = filteredsp.ToList();
             FillDataDGV(filteredList);
 
