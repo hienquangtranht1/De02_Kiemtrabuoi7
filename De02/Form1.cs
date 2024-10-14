@@ -203,7 +203,7 @@ namespace De02
             List<Sanpham> listsp = mdsanpham.Sanphams.ToList();
 
 
-            var filteredsp = listsp.Where(s => (string.IsNullOrEmpty(hoten) || s.TenSP.ToString().Contains(ten)));
+            var filteredsp = listsp.Where(s => (string.IsNullOrEmpty(ten) || s.TenSP.ToString().Contains(ten)));
             var filteredList = filteredsp.ToList();
             FillDataDGV(filteredList);
 
